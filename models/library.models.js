@@ -1,23 +1,13 @@
-import { Schema, model } from "mongoose"
+import { Schema, model, Types } from "mongoose"
 
 const librarySchema = new Schema({
-   bookName: {
-    type: String,
-   },
+    title: {type:String, required:true},
+    description: {type:String, required:true},
+    author:{type: Types.ObjectId, ref:'Author'},
+    cover:{type:String, required: true},
+    content: {type: String, required: true},
 
-   bookAuthor: {
-    type: String,
-   },
-
-   bookDescription: {
-    type: String,
-   },
-
-   bookPage: {
-    type: Number,
-
-   }
-})
+});
 
 
 export const library = model('Library', librarySchema)
