@@ -4,7 +4,7 @@ import { library } from "../models/library.models.js";
 export const getAllBooks = async (req, res, next) => {
     try {
         const books = await library.find()
-        
+        res.status(200).json(books)
     } catch (error) {
         next(error)
         
