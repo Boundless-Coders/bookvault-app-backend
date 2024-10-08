@@ -1,5 +1,5 @@
 
-import { library } from "../models/library.models.js";
+import { LibraryModel } from "../models/library.models.js";
 
 export const getAllBooks = async (req, res, next) => {
     try {
@@ -13,6 +13,7 @@ export const getAllBooks = async (req, res, next) => {
 export const getOneBook = async (req, res, next) => {
     try {
         const onebook = await library.find();
+        // const onebook = await LibraryModel.findById(req.params.id);
         res.status(200).json(onebook);
         
     } catch (error) {

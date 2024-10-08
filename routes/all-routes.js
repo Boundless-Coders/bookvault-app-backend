@@ -14,3 +14,4 @@ bookRouter.patch('/book/:id', updateBook)
 
 bookRouter.delete('/book/:id', deleteBook)
 
+export default bookRouter

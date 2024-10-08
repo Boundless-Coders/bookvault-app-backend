@@ -10,4 +10,4 @@ const librarySchema = new Schema({
 });
 
 
-export const library = model('Library', librarySchema)
+export const LibraryModel = model('Library', librarySchema)
