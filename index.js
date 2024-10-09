@@ -10,7 +10,7 @@ import cors from 'cors';
 // Place this at the bottom after all your routes
 
 
-import { bookRouter } from './routes/all-routes.js';
+import { bookRouter } from './routes/book.routes.js';
 import { authorRouter } from './routes/author.routes.js';
 import { reviewRouter } from './routes/review.routes.js';
 // import { errorHandler } from './middleware/errorHandler.js';
