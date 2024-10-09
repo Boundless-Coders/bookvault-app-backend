@@ -9,5 +9,16 @@ const librarySchema = new Schema({
 
 });
 
+// Define the schema to validate the book input
+// const bookSchema = Joi.object({
+//     title: Joi.string().min(3).required(),
+//     description: Joi.string().required(),
+//     author: Joi.string().required(),
+//     cover: Joi.string().required(),
+//     content: Joi.string().required()
+// })
+
+
+
 
 export const LibraryModel = model('Library', librarySchema)

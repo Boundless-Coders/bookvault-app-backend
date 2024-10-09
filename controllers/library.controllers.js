@@ -65,6 +65,13 @@ export const deleteBook = async (req, res, next) => {
     }
 };
 
-
+// Middleware to validate the book input
+// export const validateBook = (req, res, next) => {
+//     const { error } = bookSchema.validate(req.body);
+//     if (error) {
+//         return res.status(400).json({ message: error.details[0].message });
+//     }
+//     next();
+// };
 
 
