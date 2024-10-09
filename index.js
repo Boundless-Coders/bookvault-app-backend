@@ -14,9 +14,9 @@ await mongoose.connect(process.env.MONGO_URI)
 const app = express()
 
 // middlewares
-app.use(cors())
-app.use(express.json())
-app.use(bookRouter)
+app.use(cors());
+app.use(express.json());
+app.use(bookRouter);
 app.use(authorRouter);
 app.use(reviewRouter);
 
