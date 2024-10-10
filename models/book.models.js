@@ -1,11 +1,17 @@
-import { Schema, model, Types } from "mongoose"
+import { Schema, model, Types } from "mongoose";
 
-const librarySchema = new Schema({
+const bookSchema = new Schema({
     title: {type:String, required:true},
-    description: {type:String, required:true},
-    author:{type: Types.ObjectId, ref:'Author'},
     cover:{type:String, required: true},
-    content: {type: String, required: true},
+    author:{type: Types.ObjectId, ref:'Author'},
+    location: {type: String, required: true},
+    genre: {type: String, required: true},
+    publisher: {type: String, required: true},
+    publicationDate: {type: String, required: true},
+    PublicationPlace:{type: String, required: true},
+    pages:{type: Number},
+
+
 
 });
 
@@ -14,4 +20,4 @@ const librarySchema = new Schema({
 
 
 
-export const LibraryModel = model('Library', librarySchema)
+export const bookModel = model('Book', bookSchema)
