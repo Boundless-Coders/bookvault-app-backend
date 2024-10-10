@@ -1,4 +1,6 @@
 import { AuthorModel } from "../models/author.models.js";
+import { addAuthorValidator } from "../validators/validate.author.js";
+import { updateAuthorValidator } from "../validators/validate.author.js";
 
 export const getAllAuthors = async (req, res, next) => {
     try {
@@ -20,7 +22,11 @@ export const getOneAuthor = async (req, res, next) => {
 
 export const postAuthor = async (req, res, next) => {
     try {
-        const newAuthor = await AuthorModel.create(req.body);
+        const{error, value} = addAuthorValidator.validate(req.body);
+        if (error){
+            return res.status(422).json(error);
+        }
+        const newAuthor = await AuthorModel.create(value);
         res.status(201).json(newAuthor);
     } catch (error) {
         next(error);
@@ -29,6 +35,10 @@ export const postAuthor = async (req, res, next) => {
 
 export const updateAuthor = async (req, res, next) => {
     try {
+         // Validate user update
+         const { error, value } = updateAuthorValidator.validate(req.body);
+         if (error)
+             return res.status(422).json(error)
         const updatedAuthor = await AuthorModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.status(200).json(updatedAuthor);
     } catch (error) {

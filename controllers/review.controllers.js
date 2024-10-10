@@ -1,4 +1,7 @@
 import { ReviewModel } from "../models/review.models.js";
+import { updateReviewValidator, addReviewValidator,  } from "../validators/validate.review.js";
+
+
 
 export const getAllReviews = async (req, res, next) => {
     try {
@@ -20,6 +23,11 @@ export const getOneReview = async (req, res, next) => {
 
 export const postReview = async (req, res, next) => {
     try {
+        // Validate user update
+        const { error, value } = addReviewValidator.validate(req.body);
+        if (error) {
+            return res.status(422).json(error)
+        }
         const newReview = await ReviewModel.create(req.body);
         res.status(201).json(newReview);
     } catch (error) {
@@ -29,6 +37,11 @@ export const postReview = async (req, res, next) => {
 
 export const updateReview = async (req, res, next) => {
     try {
+        // Validate user update
+        const { error, value } = updateReviewValidator.validate(req.body);
+        if (error) {
+            return res.status(422).json(error)
+        }
         const updatedReview = await ReviewModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.status(200).json(updatedReview);
     } catch (error) {
