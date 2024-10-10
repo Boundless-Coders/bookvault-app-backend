@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getAllAuthors, getOneAuthor, postAuthor, updateAuthor, deleteAuthor } from '../controllers/author.controllers.js';
-// import { authorValidationSchema } from "../middleware/validate-author.js";
+import { addAuthorValidator } from "../validators/validate.author.js";
 
 export const authorRouter = Router();
 
