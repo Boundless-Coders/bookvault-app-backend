@@ -5,8 +5,11 @@ const librarySchema = new Schema({
     description: {type:String, required:true},
     author:{type: Types.ObjectId, ref:'Author'},
     cover:{type:String, required: true},
-    content: {type: String, required: true},
-
+    genre: {type: String, required: true},
+    publisher: {type: String, required: true},
+    publicationDate: { type: Date },
+    publicationPlace: { type: String },
+    pages: { type: Number }
 });
 
 
