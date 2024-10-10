@@ -4,7 +4,6 @@ import express from 'express';
 // import { bookingRouter } from './routes/all-routes.js'
 import mongoose from 'mongoose';
 import cors from 'cors';
-// import Joi from 'joi';
 
 
 // Place this at the bottom after all your routes
